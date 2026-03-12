@@ -1,64 +1,42 @@
-# C-Wire - Gestionnaire de réseau électrique
-> Réalisé par Tiroumourougane Synthia, Achour Hajar et Barhili Samia (Trinôme-MEF1-B)
+# C-Wire – Electrical Network Analysis Tool
 
-## Utilisation
-> Ce programme nécessite Gnuplot pour la génération des graphiques (Si vous ne le possédez pas, veuillez vous référer à la partie 'Prérequis techniques')
+Developed by Tiroumourougane Synthia, Achour Hajar and Samia Barhili.
 
-1. Cloner le repository ou ouvrer un codespace
-2. Placer le fichier de données dans le dossier 'input/'
-3. Ajouter les droits d'exécution : chmod +x c-wire.sh
-4. Pour exécuter le programme, entrer cette commande :
+## Overview
 
-./c-wire.sh <fichier_csv> <type_station> <type_consommateur> [id_centrale]
-> ⚠ il faut au minimum 3 arguments pour exécuter correctement le programme : le chemin vers le fichier à traiter + les traitements souhaités.
+C-Wire is a tool for analyzing **power distribution in an electrical network** across different station levels (HVB, HVA, LV) and consumer types.
 
-Paramètres
-- fichier_csv : Chemin vers le fichier de données (ex: input/c-wire_v25.dat)
-- type_station : Type de station (hvb, hva, lv)
-- type_consommateur : Type de consommateur (comp, indiv, all)
-- id_centrale : (Optionnel) Identifiant de la centrale (1-5)
+It processes input datasets and generates summaries of:
 
-Exemple : ./c-wire.sh input/c-wire_v25.dat hvb comp 
+- station capacities
+- energy consumption by consumer type
+- execution time
 
-## Description
+## Features
 
-C-Wire est un gestionnaire de réseau électrique qui permet d'analyser la distribution d'énergie à travers différents niveaux de stations (HVB, HVA, LV) et types de consommateurs.
+- Analysis of station capacities
+- Consumption aggregation by consumer category
+- Automated data processing via Bash script
+- Graph generation using Gnuplot
 
-### Fonctionnalités principales:
+## Usage
 
-- Analyse de la capacité des stations électriques par type
-- Calcul de la consommation totale par type de client
-- Mesure du temps d'exécution
+```bash
+chmod +x c-wire.sh
+./c-wire.sh <csv_file> <station_type> <consumer_type> [power_plant_id]
+```
+Example:
+```bash
+./c-wire.sh input/c-wire_v25.dat hvb comp
+```
+## Requirements
 
-Le programme traite les données d'entrée via un script shell et génère des fichiers de sortie détaillant:
-- La liste des stations par type
-- Les capacités de transmission
-- La consommation totale par point de connexion
+- GCC
+- Make
+- Bash
+- Gnuplot
 
+## Documentation
 
-- Plus de détails sur le projet [ici](https://github.com/Samiabarhili/c-Wire-B/blob/main/Projet_C-Wire_preIng2_2024_2025.pdf)
-
-## Structure du réseau 
-
-- **CENTRALE**
-  - **HVB**
-    - **HVA**
-      - **LV**
-        - Particuliers
-        - Entreprises
-      - Entreprises HVA
-    - Entreprises HVB
-
-## Prérequis techniques
-
-- GCC (compilateur C) - [Documentation](https://doc.ubuntu-fr.org/gcc)
-- Make (utilitaire de compilation) - [Documentation](https://linuxhint.com/install-make-ubuntu/)
-- Bash (shell Unix) - [Documentation](https://howtoinstall.co/package/bash)
-- Gnuplot (génération de graphiques) - [Documentation](http://www.gnuplot.info/)
-
-> Si Gnuplot n'est pas installé, entrez ces commandes dans le terminal :
-  > - sudo apt-get update
-  > - sudo apt-get install gnuplot -y
-
-## Bugs et limitations
-  Les traitements peuvent être relativement longs en fonction de la taille des fichiers de données.
+Project documentation:
+https://github.com/Samiabarhili/c-Wire-B/blob/main/Projet_C-Wire_preIng2_2024_2025.pdf
